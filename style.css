@@ -124,3 +124,19 @@
   .icon-play:before {
     content: "\e91b";
   }
+
+
+  @media only screen and (max-width: 600px) {
+
+    #mainnbox{
+      width: 100% !important;
+    }
+
+    .staking_flip_card_front_list ul li span, .staking_flip_card_front_list ul li strong {
+      font-size: 10px !important;
+    }
+
+  }
+
+
+  /*  */
