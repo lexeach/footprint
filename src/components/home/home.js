@@ -92,6 +92,7 @@ const Dashboard = () => {
       let all = Number(pool1_price) + Number(registration_Free);
       let total =
          Number(all) + Number((all * taxRate) / 100);
+      const total = Number(total).toFixed(4);
       setRegistrationFee(total);
       // set Last TopUp:  Current Id of ICO
       let currentID = await ICO_.methods.currUserID().call();
