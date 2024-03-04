@@ -993,6 +993,17 @@ const Dashboard = () => {
         </div>
       </div>
 
+
+      ) : (
+        ""
+      )}
+
+      {/* Registration section  */}
+      {regId > 0 ? (
+        ""
+      ) : (
+        <>
+            
       <div className="card-container container6">
         <div className="col-sm-12 grid-margin">
           <div className="card mx-auto">
