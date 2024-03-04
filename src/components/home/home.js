@@ -993,79 +993,68 @@ const Dashboard = () => {
         </div>
       </div>
 
-
-      ) : (
-        ""
-      )}
-
-      // Existing code...
-// Existing code...
-
-{/* Registration section */}
-{regId > 0 ? (
-  <>
-    {/* Display further blocks if regId is greater than zero */}
-    <div className="card-container container6">
-      <div className="col-sm-12 grid-margin">
-        <div className="card mx-auto">
-          <div className="card-body text-center">Signing Section</div>
+      <div className="card-container container6">
+        <div className="col-sm-12 grid-margin">
+          <div className="card mx-auto">
+            <div className="card-body text-center">Signing Section</div>
+          </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-sm-12 col-md-12 col-lg-12 grid-margin">
-          <div className="card-reg">
-            <div className="card-body-reg">
-              <h5>Registration</h5>
-              <div className="row">
-                <div className="col-sm-12 my-auto">
-                  <form
-                    className="forms-sample"
-                    onSubmit={handleSubmitRegistration}
-                  >
-                    <div className="form-group w-100">
-                      <input
-                        className="form-control mt-2"
-                        type="text"
-                        required
-                        name="referrerId"
-                        onChange={handleChangeReferrerId}
-                        value={referrerId || ""}
-                        placeholder="Number ID or Address"
-                      />
+        <div className="row">
+          <div className="col-sm-12 col-md-12 col-lg-12 grid-margin">
+            <div className="card-reg">
+              <div className="card-body-reg">
+                <h5>Registration</h5>
+                <div className="row">
+                  <div className="col-sm-12 my-auto">
+                    <form
+                      className="forms-sample"
+                      onSubmit={handleSubmitRegistration}
+                    >
+                      <div className="form-group w-100">
+                        <input
+                          className="form-control mt-2"
+                          type="text"
+                          required
+                          name="referrerId"
+                          onChange={handleChangeReferrerId}
+                          value={referrerId || ""}
+                          placeholder="Number ID or Address"
+                        />
 
-                      <input
-                        className="form-control mt-2"
-                        type="number"
-                        required
-                        name="coReferrerId"
-                        onChange={handleChangeCoReferrerId}
-                        value={coReferrerId || ""}
-                        placeholder="Co Referrer ID"
-                      />
+                        <input
+                          className="form-control mt-2"
+                          type="number"
+                          required
+                          name="coReferrerId"
+                          onChange={handleChangeCoReferrerId}
+                          value={coReferrerId || ""}
+                          placeholder="Co Referrer ID"
+                        />
 
-                      <input
-                        className="form-control mt-2"
-                        type="string"
-                        required
-                        name="identity"
-                        onChange={handleChangeIdentity}
-                        value={identity || ""}
-                        placeholder="Identity"
-                      />
+                        <input
+                          className="form-control mt-2"
+                          type="string"
+                          required
+                          name="identity"
+                          onChange={handleChangeIdentity}
+                          value={identity || ""}
+                          placeholder="Identity"
+                        />
 
-                      {loading && (
-                        <div className="loader-overlay">
-                          {" "}
-                          Transaction is Approving{" "}
-                        </div>
-                      )}
-                      <input
-                        className="btn mt-3 submitbtn_"
-                        type="submit"
-                        value="Registration"
-                      />
-                    </div>
-                  </form>
+                        {loading && (
+                          <div className="loader-overlay">
+                            {" "}
+                            Transaction is Approving{" "}
+                          </div>
+                        )}
+                        <input
+                          className="btn mt-3 submitbtn_"
+                          type="submit"
+                          value="Registration"
+                        />
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1073,42 +1062,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
-  </>
-) : (
-  ""
-)}
-</div>
-          </div>
-        </>
-      )}
-      <div className="pt-5"></div>
-      <Modal
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={null}
-        closable={false}
-        className="ant-model-custom"
-      >
-        <div className="loader-section">
-          <ThreeCircles
-            height="100"
-            width="100"
-            color="#4fa94d"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={loader}
-            ariaLabel="three-circles-rotating"
-            outerCircleColor=""
-            innerCircleColor=""
-            middleCircleColor=""
-          />
-        </div>
-      </Modal>
-    </div>
   );
 };
 
 export default Dashboard;
-      
-// Remaining code...
