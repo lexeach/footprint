@@ -149,18 +149,18 @@ const Dashboard = () => {
       setPool1PaymentReceived(
         Number(
           web3.utils.fromWei(pool1userss.payment_received, "ether")
-        ).toFixed(4)
+        ).toFixed(18)
       );
 
       setPartnerPool1Recieved(
         Number(
           web3.utils.fromWei(pool1userss.PartnerPoolRecieved, "ether")
-        ).toFixed(4)
+        ).toFixed(18)
       );
       setSponsorPool1Recieved(
         Number(
           web3.utils.fromWei(pool1userss.SponsorPoolRecieved, "ether")
-        ).toFixed(4)
+        ).toFixed(18)
       );
       setPool1Income(
         Number(
