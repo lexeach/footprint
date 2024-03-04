@@ -744,7 +744,7 @@ const Dashboard = () => {
             <div className="card">
               <div className="card-body">
                 <h5>Pool Income</h5>
-                <h4 className="mb-0">{currentIDFP ? currentIDFP : 0}</h4>
+                <h4 className="mb-0">{currentIdFP ? currentIdFP : 0}</h4>
               </div>
             </div>
           </div>
