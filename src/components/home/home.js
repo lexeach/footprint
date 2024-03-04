@@ -1000,11 +1000,9 @@ const Dashboard = () => {
 
       {/* Registration section  */}
       {regId > 0 ? (
-        ""
-      ) : (
-        <>
-            
-      <div className="card-container container6">
+  <>
+    {/* Display further blocks if regId is greater than zero */}
+    <div className="card-container container6">
         <div className="col-sm-12 grid-margin">
           <div className="card mx-auto">
             <div className="card-body text-center">Signing Section</div>
@@ -1066,6 +1064,11 @@ const Dashboard = () => {
                       </div>
                     </form>
                   </div>
+  </>
+) : (
+  ""
+)}            
+      
                 </div>
               </div>
             </div>
