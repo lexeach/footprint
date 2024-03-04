@@ -387,15 +387,9 @@ const Dashboard = () => {
   const handleSubmitIUpdatePool2 = async (event) => {
     event.preventDefault();
     try {
+      let total = Number(pool2_price) + Number((pool2_price * taxRate) / 100);
+      let amount = web3.utils.toWei(total.toString(), "ether");
       let FPrint_ = new web3.eth.Contract(FPrint.ABI, FPrint.address);
-      console.log("Tax Rate is :", taxRate);
-      let amount = web3.utils.toWei(
-        Number(pool2_price) + (Number(pool2_price) * Number(taxRate)) / 100,
-        "wei"
-      );
-      console.log("Amount : ", amount);
-      // require(total >= pool2_price + (pool2_price * taxRate / 100), "pool1 income is less" );
-
       setLoading(true);
       let USDT_ = new web3.eth.Contract(USDT.ABI, USDT.address);
 
@@ -426,15 +420,11 @@ const Dashboard = () => {
   const handleSubmitIUpdatePool3 = async (event) => {
     event.preventDefault();
     try {
+      let total = Number(pool3_price) + Number((pool3_price * taxRate) / 100);
+      let amount = web3.utils.toWei(total.toString(), "ether");
       let FPrint_ = new web3.eth.Contract(FPrint.ABI, FPrint.address);
-
-      let amount =
-        Number(pool3_price) + (Number(pool3_price) * Number(taxRate)) / 100;
-      // require(total >= pool2_price + (pool2_price * taxRate / 100), "pool1 income is less" );
-
       setLoading(true);
       let USDT_ = new web3.eth.Contract(USDT.ABI, USDT.address);
-
       await USDT_.methods
         .approve(FPrint.address, amount)
         .send({ from: account })
