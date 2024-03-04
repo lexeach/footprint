@@ -89,7 +89,7 @@ const Dashboard = () => {
       const convert_regfee = Number(
         web3.utils.fromWei(RegistrationFee, "ether")
       ).toFixed(4);
-     // setRegistrationFee(convert_regfee);
+      setRegistrationFee(convert_regfee);
       // set Last TopUp:  Current Id of ICO
       let currentID = await ICO_.methods.currUserID().call();
       setCurrentId(currentID);
@@ -323,7 +323,6 @@ const Dashboard = () => {
     try {
       const isEthereumAddress = /^(0x)?[0-9a-fA-F]{40}$/.test(referrerId);
       let all = Number(pool1_price) + Number(registration_Free);
-      setRegistrationFee(all);
       let total =
          Number(all) + Number((all * taxRate) / 100);
       let amount = web3.utils.toWei(total.toString(), "ether");
@@ -468,7 +467,7 @@ const Dashboard = () => {
               <div className="card-body">
                 <h5>Registration Fee</h5>
                 <h4 className="mb-0">
-                  {registration_Free ? registration_Free : 0} USDT
+                  {registration_Free ? registration_Free + pool1_price : 0} USDT
                 </h4>
               </div>
             </div>
