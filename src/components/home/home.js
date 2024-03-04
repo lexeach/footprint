@@ -247,21 +247,9 @@ const Dashboard = () => {
 
       setPool3Exist(pool3userss.isExist);
       setPool3Id(pool3userss.id);
-      setPool3PaymentReceived(
-        Number(
-          web3.utils.fromWei(pool3userss.payment_received, "ether")
-        ).toFixed(4)
-      );
-      setPartnerPool3Recieved(
-        Number(
-          web3.utils.fromWei(pool3userss.PartnerPoolRecieved, "ether")
-        ).toFixed(4)
-      );
-      setSponsorPool3Recieved(
-        Number(
-          web3.utils.fromWei(pool2userss.SponsorPoolRecieved, "ether")
-        ).toFixed(4)
-      );
+      setPool3PaymentReceived(pool3userss.payment_received);
+      setPartnerPool3Recieved(pool3userss.PartnerPoolRecieved);
+      setSponsorPool3Recieved(pool3userss.SponsorPoolRecieved);
       setPool3Income(
         Number(
           web3.utils.fromWei(
