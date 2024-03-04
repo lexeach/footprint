@@ -999,6 +999,7 @@ const Dashboard = () => {
       )}
 
       // Existing code...
+// Existing code...
 
 {/* Registration section */}
 {regId > 0 ? (
@@ -1076,5 +1077,38 @@ const Dashboard = () => {
 ) : (
   ""
 )}
+</div>
+          </div>
+        </>
+      )}
+      <div className="pt-5"></div>
+      <Modal
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={null}
+        closable={false}
+        className="ant-model-custom"
+      >
+        <div className="loader-section">
+          <ThreeCircles
+            height="100"
+            width="100"
+            color="#4fa94d"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={loader}
+            ariaLabel="three-circles-rotating"
+            outerCircleColor=""
+            innerCircleColor=""
+            middleCircleColor=""
+          />
+        </div>
+      </Modal>
+    </div>
+  );
+};
+
+export default Dashboard;
       
 // Remaining code...
