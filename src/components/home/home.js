@@ -199,11 +199,7 @@ const Dashboard = () => {
         .call();
       setPool2Exist(pool2userss.isExist);
       setPool2Id(pool2userss.id);
-      setPool2PaymentReceived(
-        Number(
-          web3.utils.fromWei(pool2userss.payment_received, "ether")
-        ).toFixed(4)
-      );
+      setPool2PaymentReceived(pool2userss.payment_received);
       setPool2Income(
         Number(
           web3.utils.fromWei(
@@ -229,16 +225,8 @@ const Dashboard = () => {
           4
         )
       );
-      setPartnerPool2Recieved(
-        Number(
-          web3.utils.fromWei(pool2userss.PartnerPoolRecieved, "ether")
-        ).toFixed(4)
-      );
-      setSponsorPool2Recieved(
-        Number(
-          web3.utils.fromWei(pool2userss.SponsorPoolRecieved, "ether")
-        ).toFixed(4)
-      );
+      setPartnerPool2Recieved(pool2userss.PartnerPoolRecieved);
+      setSponsorPool2Recieved(pool2userss.SponsorPoolRecieved);
 
       let pool3Price = await NEW_CBC_ROI.methods.pool3_price().call();
       setPool3_price(
