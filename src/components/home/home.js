@@ -146,11 +146,7 @@ const Dashboard = () => {
         .call();
 
       setPool1Id(pool1userss.id);
-      setPool1PaymentReceived(
-        Number(
-          web3.utils.fromWei(pool1userss.payment_received, "ether")
-        ).toFixed(18)
-      );
+      setPool1PaymentReceived(pool1userss.payment_received);
 
       setPartnerPool1Recieved(
         Number(
