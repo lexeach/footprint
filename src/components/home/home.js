@@ -34,6 +34,7 @@ const Dashboard = () => {
   const [currentDateEpoch, setCurrentDateEpoch] = useState();
   const [sponsorPool1Recieved, setSponsorPool1Recieved] = useState();
   const [partnerPool1Recieved, setPartnerPool1Recieved] = useState();
+  const [currentIdFP, setCurrentIdFP] = useState();
 
   const [pool2_price, setPool2_price] = useState();
   const [pool2activeUserID, setPool2activeUserID] = useState();
@@ -93,6 +94,10 @@ const Dashboard = () => {
       let currentID = await ICO_.methods.currUserID().call();
       setCurrentId(currentID);
 
+      let currentIDFP = await NEW_CBC_ROI.methods.currUserID().call();
+      setCurrentIdFP(currentIDFP);
+
+      
       let tokenPrices = await ICO_.methods.tokenPrice().call();
       let incomes = await NEW_CBC_ROI.methods.income(accounts[0]).call();
 
@@ -148,16 +153,8 @@ const Dashboard = () => {
       setPool1Id(pool1userss.id);
       setPool1PaymentReceived(pool1userss.payment_received);
 
-      setPartnerPool1Recieved(
-        Number(
-          web3.utils.fromWei(pool1userss.PartnerPoolRecieved, "ether")
-        ).toFixed(18)
-      );
-      setSponsorPool1Recieved(
-        Number(
-          web3.utils.fromWei(pool1userss.SponsorPoolRecieved, "ether")
-        ).toFixed(18)
-      );
+      setPartnerPool1Recieved(pool1userss.PartnerPoolRecieved);
+      setSponsorPool1Recieved(pool1userss.SponsorPoolRecieved);
       setPool1Income(
         Number(
           web3.utils.fromWei(
@@ -706,6 +703,7 @@ const Dashboard = () => {
           </div>
 
          
+         
           {/* Income Balance  */}
           <div className="col-lg-4 col-md-6 col-sm-12 grid-margin">
             <div className="card">
@@ -741,6 +739,16 @@ const Dashboard = () => {
             </div>
           </div>
 
+             {/* Pool Income  */}
+          <div className="col-lg-4 col-md-6 col-sm-12 grid-margin">
+            <div className="card">
+              <div className="card-body">
+                <h5>Pool Income</h5>
+                <h4 className="mb-0">{currentIDFP ? currentIDFP : 0}</h4>
+              </div>
+            </div>
+          </div>
+            
           <div className="col-sm-12 col-md-6 col-lg-6 grid-margin">
             <div className="card">
               <div className="card-body-reg">
