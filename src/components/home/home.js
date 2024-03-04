@@ -469,7 +469,7 @@ const Dashboard = () => {
       <h4 className="mb-0">
         {registration_Free && pool1_price
           ? (parseFloat(registration_Free) + parseFloat(pool1_price)).toFixed(2)
-          : 0} USDT
+          : 0} USDT + TAX
       </h4>
     </div>
   </div>
