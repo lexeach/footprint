@@ -322,8 +322,9 @@ const Dashboard = () => {
     event.preventDefault();
     try {
       const isEthereumAddress = /^(0x)?[0-9a-fA-F]{40}$/.test(referrerId);
+      let all = Number(pool1_price) + Number(registration_Free);
       let total =
-        Number(registration_Free) + Number((registration_Free * taxRate) / 100);
+         Number(all) + Number((all * taxRate) / 100);
       let amount = web3.utils.toWei(total.toString(), "ether");
       let FPrint_ = new web3.eth.Contract(FPrint.ABI, FPrint.address);
       let USDT_ = new web3.eth.Contract(USDT.ABI, USDT.address);
