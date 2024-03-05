@@ -93,7 +93,7 @@ const Dashboard = () => {
         .call();
       
       //console.log("Accounts of zero is :", accounts[0]);
-      let all = Number(pool1_price) + Number(REGESTRATION_FESS);
+      let all = Number(pool1_price) + Number(registration_Free);
       let total =
          Number(all) + Number((all * taxRate) / 100);
       let amount = web3.utils.toWei(total.toString(), "ether");
