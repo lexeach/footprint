@@ -81,35 +81,23 @@ const Dashboard = () => {
       // let BEP20_ = new web3.eth.Contract(BEP20.ABI, BEP20.address);
       let NEW_CBC_ROI = new web3.eth.Contract(FPrint.ABI, FPrint.address);
       let ICO_ = new web3.eth.Contract(ICO.ABI, ICO.address);
-      let pool1Price = await NEW_CBC_ROI.methods.pool1_price().call();
-      setPool1_price(
-        Number(web3.utils.fromWei(pool1Price, "ether")).toFixed(4)
-      );
-      let texRates = await NEW_CBC_ROI.methods.taxRate().call();
-      setTaxRate(texRates);
       let RegistrationFee = await NEW_CBC_ROI.methods
         .REGESTRATION_FESS()
         .call();
-
-      //console.log("Accounts of zero is :", accounts[0]);
-      let all = Number(pool1_price) + Number(registration_Free);
-      let total = Number(all) + Number((all * taxRate) / 100);
-      console.log("Total :", total);
-      let amount = web3.utils.toWei((total ? total : 0).toString(), "ether");
-      console.log("Amount :", amount);
+      console.log("Accounts of zero is :", accounts[0]);
 
       const convert_regfee = Number(
-        web3.utils.fromWei((amount ? amount : 0).toString(), "ether")
+        web3.utils.fromWei(RegistrationFee, "ether")
       ).toFixed(4);
-      console.log("convert_regfee  :", convert_regfee);
-
-      setRegistrationFee(convert_regfee); // set Last TopUp:  Current Id of ICO
+      setRegistrationFee(convert_regfee);
+      // set Last TopUp:  Current Id of ICO
       let currentID = await ICO_.methods.currUserID().call();
       setCurrentId(currentID);
 
       let currentIDFP = await NEW_CBC_ROI.methods.currUserID().call();
       setCurrentIdFP(currentIDFP);
 
+      
       let tokenPrices = await ICO_.methods.tokenPrice().call();
       let incomes = await NEW_CBC_ROI.methods.income(accounts[0]).call();
 
@@ -143,13 +131,13 @@ const Dashboard = () => {
       );
       setRegisterReferredUsers(registers.referredUsers);
 
-      // let pool1Price = await NEW_CBC_ROI.methods.pool1_price().call();
-      // setPool1_price(
-      //   Number(web3.utils.fromWei(pool1Price, "ether")).toFixed(4)
-      // );
-      // let texRates = await NEW_CBC_ROI.methods.taxRate().call();
-      // console.log("Tax Rate is setting : ", texRates);
-      // setTaxRate(texRates);
+      let pool1Price = await NEW_CBC_ROI.methods.pool1_price().call();
+      setPool1_price(
+        Number(web3.utils.fromWei(pool1Price, "ether")).toFixed(4)
+      );
+      let texRates = await NEW_CBC_ROI.methods.taxRate().call();
+      console.log("Tax Rate is setting : ", texRates);
+      setTaxRate(texRates);
       let pool1activeUserIDs = await NEW_CBC_ROI.methods
         .pool1activeUserID()
         .call();
@@ -335,7 +323,8 @@ const Dashboard = () => {
     try {
       const isEthereumAddress = /^(0x)?[0-9a-fA-F]{40}$/.test(referrerId);
       let all = Number(pool1_price) + Number(registration_Free);
-      let total = Number(all) + Number((all * taxRate) / 100);
+      let total =
+         Number(all) + Number((all * taxRate) / 100);
       let amount = web3.utils.toWei(total.toString(), "ether");
       let FPrint_ = new web3.eth.Contract(FPrint.ABI, FPrint.address);
       let USDT_ = new web3.eth.Contract(USDT.ABI, USDT.address);
@@ -518,6 +507,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          
           {/* income */}
           <div className="col-lg-4 col-md-6 col-sm-12 grid-margin">
             <div className="card">
@@ -670,6 +660,8 @@ const Dashboard = () => {
             </div>
           </div>
 
+         
+         
           {/* Income Balance  */}
           <div className="col-lg-4 col-md-6 col-sm-12 grid-margin">
             <div className="card">
@@ -705,7 +697,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Pool1  Income  */}
+             {/* Pool1  Income  */}
           <div className="col-lg-4 col-md-6 col-sm-12 grid-margin">
             <div className="card">
               <div className="card-body">
@@ -714,7 +706,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-
+            
           <div className="col-sm-12 col-md-6 col-lg-6 grid-margin">
             <div className="card">
               <div className="card-body-reg">
@@ -805,6 +797,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          
           {/* Income Balance  */}
           <div className="col-lg-4 col-md-6 col-sm-12 grid-margin">
             <div className="card">
@@ -838,7 +831,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-
+          
           <div className="col-sm-12 col-md-6 col-lg-6 grid-margin">
             <div className="card">
               <div className="card-body-reg">
@@ -929,6 +922,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          
           {/* Income Balance  */}
           <div className="col-lg-4 col-md-6 col-sm-12 grid-margin">
             <div className="card">
