@@ -98,7 +98,7 @@ const Dashboard = () => {
       let all_ = Number(pool1_price) + Number(registration_Free);
       let total_ = Number(all_) + Number((all_ * taxRate) / 100);
       const convert_regfee = Number(web3.utils.fromWei(total_, "ether")).toFixed(4);
-      setRegistrationFee(convert_regfee);
+      setRegistrationFee(total_);
       // set Last TopUp:  Current Id of ICO
       let currentID = await ICO_.methods.currUserID().call();
       setCurrentId(currentID);
