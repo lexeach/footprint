@@ -94,8 +94,8 @@ const Dashboard = () => {
         .call();
 
       //console.log("Accounts of zero is :", accounts[0]);
-      console.log("ITs ok : ", pool1_price, RegistrationFee);
-      let all = Number(pool1_price) + Number(RegistrationFee);
+      console.log("ITs ok : ", pool1_price, registration_Free);
+      let all = Number(pool1_price) + Number(registration_Free);
       console.log("All is :", all);
       let total = Number(all) + Number((all * taxRate) / 100);
       console.log("Total :", total);
