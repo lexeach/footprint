@@ -81,23 +81,23 @@ const Dashboard = () => {
       // let BEP20_ = new web3.eth.Contract(BEP20.ABI, BEP20.address);
       let NEW_CBC_ROI = new web3.eth.Contract(FPrint.ABI, FPrint.address);
       let ICO_ = new web3.eth.Contract(ICO.ABI, ICO.address);
-      let pool1Price = await NEW_CBC_ROI.methods.pool1_price().call();
-      setPool1_price(
-        Number(web3.utils.fromWei(pool1Price, "ether")).toFixed(4)
-      );
-      let texRates = await NEW_CBC_ROI.methods.taxRate().call();
-      console.log("Tax Rate is setting : ", texRates);
-      setTaxRate(texRates);
-      let RegistrationFee = await NEW_CBC_ROI.methods
-        .REGESTRATION_FESS()
-        .call();
-      console.log("Accounts of zero is :", accounts[0]);
+      async function fetchData() {
+  try {
+    let pool1Price = await NEW_CBC_ROI.methods.pool1_price().call();
+    let taxRates = await NEW_CBC_ROI.methods.taxRate().call();
+    let RegistrationFee = await NEW_CBC_ROI.methods.REGESTRATION_FESS().call();
+
+    console.log("Pool 1 Price is: ", pool1Price);
+    console.log("Tax Rate is setting: ", taxRates);
+
+    setPool1_price(Number(web3.utils.fromWei(pool1Price, "ether")).toFixed(4));
+    setTaxRate(taxRates);
+
+    // Check if registration_Free is defined before using it
+    if (typeof registration_Free !== 'undefined') {
       let all_ = Number(pool1_price) + Number(registration_Free);
-      let total_ =
-         Number(all_) + Number((all_ * taxRate) / 100);
-      const convert_regfee = Number(
-        web3.utils.fromWei(total_, "ether")
-      ).toFixed(4);
+      let total_ = Number(all_) + Number((all_ * taxRate) / 100);
+      const convert_regfee = Number(web3.utils.fromWei(total_, "ether")).toFixed(4);
       setRegistrationFee(convert_regfee);
       // set Last TopUp:  Current Id of ICO
       let currentID = await ICO_.methods.currUserID().call();
