@@ -81,6 +81,7 @@ const Dashboard = () => {
       // let BEP20_ = new web3.eth.Contract(BEP20.ABI, BEP20.address);
       let NEW_CBC_ROI = new web3.eth.Contract(FPrint.ABI, FPrint.address);
       let ICO_ = new web3.eth.Contract(ICO.ABI, ICO.address);
+      let pool1Price = await NEW_CBC_ROI.methods.pool1_price().call();
       setPool1_price(
         Number(web3.utils.fromWei(pool1Price, "ether")).toFixed(4)
       );
