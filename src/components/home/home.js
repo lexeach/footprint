@@ -91,9 +91,7 @@ const Dashboard = () => {
       let RegistrationFee = await NEW_CBC_ROI.methods
         .REGESTRATION_FESS()
         .call();
-      setRegistrationFee(
-        Number(web3.utils.fromWei(REGESTRATION_FESS, "ether")).toFixed(4)
-      );
+      
       //console.log("Accounts of zero is :", accounts[0]);
       let all = Number(pool1_price) + Number(REGESTRATION_FESS);
       let total =
